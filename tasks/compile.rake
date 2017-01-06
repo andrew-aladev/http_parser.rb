@@ -9,14 +9,20 @@ end
 Gem::PackageTask.new(gemspec) do |pkg|
 end
 
-Rake::ExtensionTask.new("ruby_http_parser", gemspec) do |ext|
-  unless RUBY_PLATFORM =~ /mswin|mingw/
-    ext.cross_compile = true
-    ext.cross_platform = ['x86-mingw32', 'x86-mswin32-60']
+if RUBY_PLATFORM =~ /java/
+  Rake::JavaExtensionTask.new("ruby_http_parser", gemspec) do |ext|
+    ext.classpath = File.expand_path('../../ext/ruby_http_parser/vendor/http-parser-java/ext/primitives.jar', __FILE__)
+  end
+else
+  Rake::ExtensionTask.new("ruby_http_parser", gemspec) do |ext|
+    unless RUBY_PLATFORM =~ /mswin|mingw/
+      ext.cross_compile = true
+      ext.cross_platform = ['x86-mingw32', 'x86-mswin32-60']
 
-    # inject 1.8/1.9 pure-ruby entry point
-    ext.cross_compiling do |spec|
-      spec.files += ['lib/ruby_http_parser.rb']
+      # inject 1.8/1.9 pure-ruby entry point
+      ext.cross_compiling do |spec|
+        spec.files += ['lib/ruby_http_parser.rb']
+      end
     end
   end
 end
