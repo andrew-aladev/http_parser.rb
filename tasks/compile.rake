@@ -3,7 +3,7 @@ require 'rake/extensiontask'
 require 'rake/javaextensiontask'
 
 def gemspec
-  @clean_gemspec ||= eval(File.read(File.expand_path('../../http_parser.rb.gemspec', __FILE__)))
+  @clean_gemspec ||= eval(File.read(File.expand_path('../../midori_http_parser.gemspec', __FILE__)))
 end
 
 Gem::PackageTask.new(gemspec) do |pkg|
