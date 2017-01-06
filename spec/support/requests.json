@@ -418,6 +418,46 @@
     "strict": true
   },
   {
+    "name": "link request",
+    "type": "HTTP_REQUEST",
+    "raw": "LINK /test HTTP/1.1\r\n\r\n",
+    "should_keep_alive": false,
+    "message_complete_on_eof": false,
+    "http_major": 1,
+    "http_minor": 1,
+    "method": "LINK",
+    "query_string": "",
+    "fragment": "",
+    "request_path": "/test",
+    "request_url": "/test",
+    "num_headers": 0,
+    "headers": {
+
+    },
+    "body": "",
+    "strict": true
+  },
+    {
+    "name": "unlink request",
+    "type": "HTTP_REQUEST",
+    "raw": "UNLINK /test HTTP/1.1\r\n\r\n",
+    "should_keep_alive": false,
+    "message_complete_on_eof": false,
+    "http_major": 1,
+    "http_minor": 1,
+    "method": "UNLINK",
+    "query_string": "",
+    "fragment": "",
+    "request_path": "/test",
+    "request_url": "/test",
+    "num_headers": 0,
+    "headers": {
+
+    },
+    "body": "",
+    "strict": true
+  },
+  {
     "name": "m-search request",
     "type": "HTTP_REQUEST",
     "raw": "M-SEARCH * HTTP/1.1\r\nHOST: 239.255.255.250:1900\r\nMAN: \"ssdp:discover\"\r\nST: \"ssdp:all\"\r\n\r\n",
