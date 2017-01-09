@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = "midori_http_parser"
-  s.version = "0.6.1"
+  s.version = "0.6.1.1"
   s.summary = "Simple callback-based HTTP request/response parser"
-  s.description = "Ruby bindings to https://github.com/joyent/http-parser and https://github.com/http-parser/http-parser.java"
-
+  s.description = "Fast Ruby Parser inpired by Node"
+  s.platform = 'java' if RUBY_PLATFORM =~ /java/
   s.authors = ["Delton Ding"]
   s.email   = ["delton@heckpsi.com"]
   s.license = 'MIT'
@@ -20,9 +20,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'benchmark_suite'
   s.add_development_dependency 'ffi'
 
-  if RUBY_PLATFORM =~ /java/
-    # s.add_development_dependency 'jruby-openssl'
-  else
-    s.add_development_dependency 'yajl-ruby', '>= 0.8.1'
-  end
+  s.add_development_dependency 'yajl-ruby', '>= 0.8.1' unless RUBY_PLATFORM =~ /java/
 end
