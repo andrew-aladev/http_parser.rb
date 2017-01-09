@@ -26,5 +26,8 @@ matrix:
 os:
   - linux
 
+before_install:
+  - gem install bundler
+
 notifications:
   email: false
