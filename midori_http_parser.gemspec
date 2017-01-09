@@ -1,9 +1,13 @@
 Gem::Specification.new do |s|
   s.name = "midori_http_parser"
-  s.version = "0.6.1.1"
+  s.version = "0.6.1.2"
   s.summary = "Simple callback-based HTTP request/response parser"
   s.description = "Fast Ruby Parser inpired by Node"
-  s.platform = 'java' if RUBY_PLATFORM =~ /java/
+  if RUBY_PLATFORM =~ /java/
+    s.platform = 'java' 
+  else
+    s.platform = 'ruby'
+  end
   s.authors = ["Delton Ding"]
   s.email   = ["delton@heckpsi.com"]
   s.license = 'MIT'
