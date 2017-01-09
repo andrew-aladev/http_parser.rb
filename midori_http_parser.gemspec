@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "midori_http_parser"
-  s.version = "0.6.1.2"
+  s.version = "0.6.1.3"
   s.summary = "Simple callback-based HTTP request/response parser"
   s.description = "Fast Ruby Parser inpired by Node"
   if RUBY_PLATFORM =~ /java/
