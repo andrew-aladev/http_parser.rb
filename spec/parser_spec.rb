@@ -180,25 +180,6 @@ describe HTTP::Parser do
     expect(@parser.request_url).to be_nil
   end
 
-  it "should optionally reset parser state on no-body responses" do
-   expect(@parser.reset!).to be true
-
-   @head, @complete = 0, 0
-   @parser.on_headers_complete = proc {|h| @head += 1; :reset }
-   @parser.on_message_complete = proc { @complete += 1 }
-   @parser.on_body = proc {|b| fail }
-
-   head_response = "HTTP/1.1 200 OK\r\nContent-Length:10\r\n\r\n"
-
-   @parser << head_response
-   expect(@head).to eq(1)
-   expect(@complete).to eq(1)
-
-   @parser << head_response
-   expect(@head).to eq(2)
-   expect(@complete).to eq(2)
-  end
-
   it "should retain callbacks after reset" do
     expect(@parser.reset!).to be true
 
@@ -291,18 +272,6 @@ describe HTTP::Parser do
     expect(@started).to be true
     expect(@headers).to eq({})
     expect(@body).to eq('')
-    expect(@done).to be true
-  end
-
-  it "should ignore extra content beyond specified length" do
-    @parser <<
-      "GET / HTTP/1.0\r\n" +
-      "Content-Length: 5\r\n" +
-      "\r\n" +
-      "hello" +
-      "  \n"
-
-    expect(@body).to eq('hello')
     expect(@done).to be true
   end
 

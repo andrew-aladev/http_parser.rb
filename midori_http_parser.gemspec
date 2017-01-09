@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'ffi'
 
   if RUBY_PLATFORM =~ /java/
-    s.add_development_dependency 'jruby-openssl'
+    # s.add_development_dependency 'jruby-openssl'
   else
     s.add_development_dependency 'yajl-ruby', '>= 0.8.1'
   end
