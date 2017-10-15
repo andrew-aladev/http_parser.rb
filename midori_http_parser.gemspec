@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "midori_http_parser"
-  s.version = "0.6.1.3"
+  s.version = "0.6.2"
   s.summary = "Simple callback-based HTTP request/response parser"
   s.description = "Fast Ruby Parser inpired by Node"
   s.platform = 'ruby'
@@ -19,6 +19,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'json', '>= 1.4.6'
   s.add_development_dependency 'benchmark_suite'
   s.add_development_dependency 'ffi'
-
-  s.add_development_dependency 'yajl-ruby', '>= 0.8.1' unless RUBY_PLATFORM =~ /java/
 end
