@@ -3,16 +3,12 @@ Gem::Specification.new do |s|
   s.version = "0.6.1.3"
   s.summary = "Simple callback-based HTTP request/response parser"
   s.description = "Fast Ruby Parser inpired by Node"
-  if RUBY_PLATFORM =~ /java/
-    s.platform = 'java' 
-  else
-    s.platform = 'ruby'
-  end
+  s.platform = 'ruby'
   s.authors = ["Delton Ding"]
   s.email   = ["delton@heckpsi.com"]
   s.license = 'MIT'
 
-  s.homepage = "https://github.com/heckpsi-lab/http_parser.rb"
+  s.homepage = "https://github.com/midori-rb/http_parser.rb"
   s.files = `git ls-files`.split("\n") + Dir['ext/ruby_http_parser/vendor/**/*']
 
   s.require_paths = ["lib"]
