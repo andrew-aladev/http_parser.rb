@@ -1,1 +1,8 @@
-require "http_parser"
+require 'codeclimate-test-reporter'
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter '/spec/'
+end
+
+require 'http_parser'
