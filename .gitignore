@@ -10,3 +10,4 @@ Gemfile.lock
 Makefile
 tags
 tmp
+coverage

@@ -17,5 +17,12 @@ os:
 before_install:
   - gem install bundler
 
+script:
+  - gem list -l
+  - bundle exec rake compile
+  - bundle exec rake
+  - bundle exec codeclimate-test-reporter
+  - gem build ./midori_http_parser.gemspec
+
 notifications:
   email: false
